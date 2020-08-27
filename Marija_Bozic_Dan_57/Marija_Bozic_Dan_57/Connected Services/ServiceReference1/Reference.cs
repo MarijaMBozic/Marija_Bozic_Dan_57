@@ -9,129 +9,94 @@
 //------------------------------------------------------------------------------
 
 namespace Marija_Bozic_Dan_57.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
+    public interface IService1 {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllArticals", ReplyAction="http://tempuri.org/IService1/GetAllArticalsResponse")]
+        Service.Models.Artical[] GetAllArticals();
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllArticals", ReplyAction="http://tempuri.org/IService1/GetAllArticalsResponse")]
+        System.Threading.Tasks.Task<Service.Models.Artical[]> GetAllArticalsAsync();
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateArtical", ReplyAction="http://tempuri.org/IService1/UpdateArticalResponse")]
+        void UpdateArtical(Service.Models.Artical artical);
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateArtical", ReplyAction="http://tempuri.org/IService1/UpdateArticalResponse")]
+        System.Threading.Tasks.Task UpdateArticalAsync(Service.Models.Artical artical);
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewArtical", ReplyAction="http://tempuri.org/IService1/AddNewArticalResponse")]
+        void AddNewArtical(Service.Models.Artical artical);
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddNewArtical", ReplyAction="http://tempuri.org/IService1/AddNewArticalResponse")]
+        System.Threading.Tasks.Task AddNewArticalAsync(Service.Models.Artical artical);
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetArticalByName", ReplyAction="http://tempuri.org/IService1/GetArticalByNameResponse")]
+        Service.Models.Artical GetArticalByName(string name);
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetArticalByName", ReplyAction="http://tempuri.org/IService1/GetArticalByNameResponse")]
+        System.Threading.Tasks.Task<Service.Models.Artical> GetArticalByNameAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
-    public interface IService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        Marija_Bozic_Dan_57.ServiceReference1.CompositeType GetDataUsingDataContract(Marija_Bozic_Dan_57.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Marija_Bozic_Dan_57.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Marija_Bozic_Dan_57.ServiceReference1.CompositeType composite);
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : Marija_Bozic_Dan_57.ServiceReference1.IService, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : Marija_Bozic_Dan_57.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<Marija_Bozic_Dan_57.ServiceReference1.IService>, Marija_Bozic_Dan_57.ServiceReference1.IService {
+    public partial class Service1Client : System.ServiceModel.ClientBase<Marija_Bozic_Dan_57.ServiceReference1.IService1>, Marija_Bozic_Dan_57.ServiceReference1.IService1 {
         
-        public ServiceClient() {
+        public Service1Client() {
         }
         
-        public ServiceClient(string endpointConfigurationName) : 
+        public Service1Client(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public Service.Models.Artical[] GetAllArticals() {
+            return base.Channel.GetAllArticals();
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<Service.Models.Artical[]> GetAllArticalsAsync() {
+            return base.Channel.GetAllArticalsAsync();
         }
         
-        public Marija_Bozic_Dan_57.ServiceReference1.CompositeType GetDataUsingDataContract(Marija_Bozic_Dan_57.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public void UpdateArtical(Service.Models.Artical artical) {
+            base.Channel.UpdateArtical(artical);
         }
         
-        public System.Threading.Tasks.Task<Marija_Bozic_Dan_57.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(Marija_Bozic_Dan_57.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task UpdateArticalAsync(Service.Models.Artical artical) {
+            return base.Channel.UpdateArticalAsync(artical);
+        }
+        
+        public void AddNewArtical(Service.Models.Artical artical) {
+            base.Channel.AddNewArtical(artical);
+        }
+        
+        public System.Threading.Tasks.Task AddNewArticalAsync(Service.Models.Artical artical) {
+            return base.Channel.AddNewArticalAsync(artical);
+        }
+        
+        public Service.Models.Artical GetArticalByName(string name) {
+            return base.Channel.GetArticalByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<Service.Models.Artical> GetArticalByNameAsync(string name) {
+            return base.Channel.GetArticalByNameAsync(name);
         }
     }
 }
