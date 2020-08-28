@@ -1,4 +1,5 @@
 ﻿using Marija_Bozic_Dan_57.ServiceReference1;
+using Marija_Bozic_Dan_57.ValidationInput;
 using Service;
 using Service.Models;
 using System;
@@ -58,6 +59,42 @@ namespace Marija_Bozic_Dan_57.Helper
 
                 service.UpdateArtical(artical);
             }
+        }
+
+        public static void BuyArticals()
+        {
+            List<Artical> listOfArticals = new List<Artical>();
+            using (Service1Client service = new Service1Client())
+            {
+                while (true)
+                {
+                    Console.WriteLine("\nIf you do not want new articles, press x:");
+                    Console.WriteLine("\nInsert name of artical:");
+                    string input = Console.ReadLine();
+
+                    if (input.ToLower() == "x")
+                    {
+                        if(listOfArticals!=null)
+                        {
+                            service.AddArticalToBill(listOfArticals.ToArray());
+                        }                        
+                        break;
+                    }
+
+                    Artical a = service.GetArticalByName(input);
+                    if(a==null)
+                    {
+                        Console.WriteLine("We dont'have artical under the name: {0}", input.ToUpper());
+                        continue;
+                    }
+                    Console.WriteLine("\nInsert quantity of artical:");
+                    int inputQuantity = Validation.ValidateInt();
+                    a.Quantity = inputQuantity;
+                    
+                    listOfArticals.Add(a);                   
+                }
+                
+            }           
         }
     }
 }

@@ -87,5 +87,36 @@ namespace Service
             }
             return null;
         }
+
+        public void AddArticalToBill(List<Artical> listOfArticals)
+        {        
+            Bill bill = new Bill();
+            bill.ListArticals = listOfArticals;
+            foreach (Artical item in listOfArticals)
+            {
+                bill.TotalPrice += item.Price * item.Quantity;
+            }
+            bill.TimeStamp = DateTime.Now;
+            CreateBill(bill);
+        }
+
+        public void CreateBill(Bill bill)
+        {
+            string fileName =FilesPath.GetDirectoryPathBill;
+
+
+            using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.UTF8))
+            {
+                writer.WriteLine("Time: {0}", bill.TimeStamp);
+                writer.WriteLine("--------------------------------");
+                writer.WriteLine("{0, -5} {1, 20} {2, 10} ", "[NAME]", "[QUANTITY]", "[PRICE]");
+                foreach (Artical item in bill.ListArticals)
+                {
+                    writer.WriteLine("{0, 5} - {1, 13}x{2, 15}", item.Name, item.Quantity, item.Price);
+                }
+                writer.WriteLine("--------------------------------");
+                writer.WriteLine("Total price: {0}", bill.TotalPrice);
+            }
+        }
     }
 }

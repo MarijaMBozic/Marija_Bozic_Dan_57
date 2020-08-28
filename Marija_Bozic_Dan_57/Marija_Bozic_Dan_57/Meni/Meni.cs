@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Marija_Bozic_Dan_57.ValidationInput;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,7 @@ namespace Marija_Bozic_Dan_57.Meni
         public int ReadOptionFromUser()
         {
             Console.WriteLine("Choose option(0-{0})", listOptions.Count);
-            int choosenOption = ValidateInput();
+            int choosenOption =Validation.ValidateInt();
             if(choosenOption<0 || choosenOption>listOptions.Count)
             {
                 Console.WriteLine("The entered option is invalid");
@@ -67,16 +68,5 @@ namespace Marija_Bozic_Dan_57.Meni
                 ExecuteOption(choosenOption);
             } while (choosenOption != 0);
         }
-
-        public static int ValidateInput()
-        {
-            int number;
-            while (Int32.TryParse(Console.ReadLine(), out number) == false)
-            {
-                Console.Write("Error - incorrectly entered value, try again: ");
-            }
-            return number;
-        }
-
     }
 }

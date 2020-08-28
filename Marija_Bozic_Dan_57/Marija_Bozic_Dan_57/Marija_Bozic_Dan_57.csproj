@@ -55,6 +55,7 @@
     <Compile Include="Meni\Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationInput\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -73,9 +74,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>

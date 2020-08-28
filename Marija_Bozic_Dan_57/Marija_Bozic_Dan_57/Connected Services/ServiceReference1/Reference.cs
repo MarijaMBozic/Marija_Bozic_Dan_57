@@ -38,6 +38,18 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetArticalByName", ReplyAction="http://tempuri.org/IService1/GetArticalByNameResponse")]
         System.Threading.Tasks.Task<Service.Models.Artical> GetArticalByNameAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddArticalToBill", ReplyAction="http://tempuri.org/IService1/AddArticalToBillResponse")]
+        void AddArticalToBill(Service.Models.Artical[] listOfArticals);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddArticalToBill", ReplyAction="http://tempuri.org/IService1/AddArticalToBillResponse")]
+        System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateBill", ReplyAction="http://tempuri.org/IService1/CreateBillResponse")]
+        void CreateBill(Service.Models.Bill bill);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateBill", ReplyAction="http://tempuri.org/IService1/CreateBillResponse")]
+        System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +109,22 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Service.Models.Artical> GetArticalByNameAsync(string name) {
             return base.Channel.GetArticalByNameAsync(name);
+        }
+        
+        public void AddArticalToBill(Service.Models.Artical[] listOfArticals) {
+            base.Channel.AddArticalToBill(listOfArticals);
+        }
+        
+        public System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals) {
+            return base.Channel.AddArticalToBillAsync(listOfArticals);
+        }
+        
+        public void CreateBill(Service.Models.Bill bill) {
+            base.Channel.CreateBill(bill);
+        }
+        
+        public System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill) {
+            return base.Channel.CreateBillAsync(bill);
         }
     }
 }

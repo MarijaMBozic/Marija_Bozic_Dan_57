@@ -31,6 +31,18 @@
   <wsdl:message name="IService1_GetArticalByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArticalByNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddArticalToBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddArticalToBill" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddArticalToBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddArticalToBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBill" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBillResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetAllArticals">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllArticals" message="tns:IService1_GetAllArticals_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="GetArticalByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetArticalByName" message="tns:IService1_GetArticalByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetArticalByNameResponse" message="tns:IService1_GetArticalByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddArticalToBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddArticalToBill" message="tns:IService1_AddArticalToBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddArticalToBillResponse" message="tns:IService1_AddArticalToBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateBill" message="tns:IService1_CreateBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateBillResponse" message="tns:IService1_CreateBill_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetArticalByName">
       <soap:operation soapAction="http://tempuri.org/IService1/GetArticalByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddArticalToBill">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddArticalToBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBill">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateBill" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

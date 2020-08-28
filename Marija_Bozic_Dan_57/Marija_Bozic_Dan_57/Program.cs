@@ -17,11 +17,11 @@ namespace Marija_Bozic_Dan_57
             meni.AddOption(ConnectionService.GetAllArticals, "Show all aricals");
             meni.AddOption(ConnectionService.AddNewArtical, "Add new artical");
             meni.AddOption(ConnectionService.ChangePriceOfArtical, "Change Price Of Artical");
+            meni.AddOption(ConnectionService.BuyArticals, "Buy articals");
+
 
             meni.RunOption();
             Console.ReadKey();
-            //meni.AddOption(, "Add new artical");
-            //meni.AddOption(, "Update artical");
         }
     }
 }

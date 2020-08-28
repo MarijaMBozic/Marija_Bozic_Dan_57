@@ -26,6 +26,12 @@ namespace Service
         [OperationContract]
         Artical GetArticalByName(string name);
 
+        [OperationContract]
+        void AddArticalToBill(List<Artical> listOfArticals);
+
+        [OperationContract]
+        void CreateBill(Bill bill);
+
     }
 
     [DataContract]
