@@ -16,7 +16,6 @@
   <xs:element name="Artical" nillable="true" type="tns:Artical" />
   <xs:complexType name="Bill">
     <xs:sequence>
-      <xs:element name="_x003C_BrojRacuna_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_ListArticals_x003E_k__BackingField" nillable="true" type="tns:ArrayOfArtical" />
       <xs:element name="_x003C_TimeStamp_x003E_k__BackingField" type="xs:dateTime" />
       <xs:element name="_x003C_TotalPrice_x003E_k__BackingField" type="xs:double" />

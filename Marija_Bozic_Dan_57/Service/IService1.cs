@@ -27,10 +27,13 @@ namespace Service
         Artical GetArticalByName(string name);
 
         [OperationContract]
-        void AddArticalToBill(List<Artical> listOfArticals);
+        void AddArticalToBill(List<Artical> listOfArticals, int numberOfBill);
 
         [OperationContract]
-        void CreateBill(Bill bill);
+        void CreateBill(Bill bill, int numberOfBill);
+
+        [OperationContract]
+        void CorectArticalQuantity(List<Artical> listOfBuyArticals);
 
     }
 

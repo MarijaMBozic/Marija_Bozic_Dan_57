@@ -13,7 +13,7 @@ namespace Service
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
-    {        
+    {
         public List<Artical> GetAllArticals()
         {
             List<Artical> allArticals = new List<Artical>();
@@ -88,7 +88,7 @@ namespace Service
             return null;
         }
 
-        public void AddArticalToBill(List<Artical> listOfArticals)
+        public void AddArticalToBill(List<Artical> listOfArticals, int numberOfBill)
         {        
             Bill bill = new Bill();
             bill.ListArticals = listOfArticals;
@@ -97,13 +97,12 @@ namespace Service
                 bill.TotalPrice += item.Price * item.Quantity;
             }
             bill.TimeStamp = DateTime.Now;
-            CreateBill(bill);
+            CreateBill(bill, numberOfBill);
         }
 
-        public void CreateBill(Bill bill)
+        public void CreateBill(Bill bill, int numberOfBill)
         {
-            string fileName =FilesPath.GetDirectoryPathBill;
-
+            string fileName =FilesPath.CreateBillTxt(numberOfBill);
 
             using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.UTF8))
             {
@@ -116,6 +115,27 @@ namespace Service
                 }
                 writer.WriteLine("--------------------------------");
                 writer.WriteLine("Total price: {0}", bill.TotalPrice);
+            }
+            CorectArticalQuantity(bill.ListArticals);
+        }
+        public void CorectArticalQuantity(List<Artical> listOfBuyArticals)
+        {
+            string fileName = FilesPath.GetDirectoryPathArtica;
+            List<Artical> articalList = GetAllArticals();
+
+            using (StreamWriter writer = new StreamWriter(fileName, false, Encoding.UTF8))
+            {
+                foreach (Artical art in articalList)
+                {
+                    foreach (Artical item in listOfBuyArticals)
+                    {
+                        if (art.Name==item.Name)
+                        {
+                            art.Quantity = art.Quantity-item.Quantity;
+                        }
+                    }                    
+                    writer.WriteLine("{0},{1},{2}", art.Name, art.Quantity, art.Price);
+                }
             }
         }
     }

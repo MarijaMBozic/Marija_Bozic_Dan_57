@@ -40,16 +40,22 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
         System.Threading.Tasks.Task<Service.Models.Artical> GetArticalByNameAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddArticalToBill", ReplyAction="http://tempuri.org/IService1/AddArticalToBillResponse")]
-        void AddArticalToBill(Service.Models.Artical[] listOfArticals);
+        void AddArticalToBill(Service.Models.Artical[] listOfArticals, int numberOfBill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddArticalToBill", ReplyAction="http://tempuri.org/IService1/AddArticalToBillResponse")]
-        System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals);
+        System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals, int numberOfBill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateBill", ReplyAction="http://tempuri.org/IService1/CreateBillResponse")]
-        void CreateBill(Service.Models.Bill bill);
+        void CreateBill(Service.Models.Bill bill, int numberOfBill);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateBill", ReplyAction="http://tempuri.org/IService1/CreateBillResponse")]
-        System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill);
+        System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill, int numberOfBill);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CorectArticalQuantity", ReplyAction="http://tempuri.org/IService1/CorectArticalQuantityResponse")]
+        void CorectArticalQuantity(Service.Models.Artical[] listOfBuyArticals);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CorectArticalQuantity", ReplyAction="http://tempuri.org/IService1/CorectArticalQuantityResponse")]
+        System.Threading.Tasks.Task CorectArticalQuantityAsync(Service.Models.Artical[] listOfBuyArticals);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,20 +117,28 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
             return base.Channel.GetArticalByNameAsync(name);
         }
         
-        public void AddArticalToBill(Service.Models.Artical[] listOfArticals) {
-            base.Channel.AddArticalToBill(listOfArticals);
+        public void AddArticalToBill(Service.Models.Artical[] listOfArticals, int numberOfBill) {
+            base.Channel.AddArticalToBill(listOfArticals, numberOfBill);
         }
         
-        public System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals) {
-            return base.Channel.AddArticalToBillAsync(listOfArticals);
+        public System.Threading.Tasks.Task AddArticalToBillAsync(Service.Models.Artical[] listOfArticals, int numberOfBill) {
+            return base.Channel.AddArticalToBillAsync(listOfArticals, numberOfBill);
         }
         
-        public void CreateBill(Service.Models.Bill bill) {
-            base.Channel.CreateBill(bill);
+        public void CreateBill(Service.Models.Bill bill, int numberOfBill) {
+            base.Channel.CreateBill(bill, numberOfBill);
         }
         
-        public System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill) {
-            return base.Channel.CreateBillAsync(bill);
+        public System.Threading.Tasks.Task CreateBillAsync(Service.Models.Bill bill, int numberOfBill) {
+            return base.Channel.CreateBillAsync(bill, numberOfBill);
+        }
+        
+        public void CorectArticalQuantity(Service.Models.Artical[] listOfBuyArticals) {
+            base.Channel.CorectArticalQuantity(listOfBuyArticals);
+        }
+        
+        public System.Threading.Tasks.Task CorectArticalQuantityAsync(Service.Models.Artical[] listOfBuyArticals) {
+            return base.Channel.CorectArticalQuantityAsync(listOfBuyArticals);
         }
     }
 }

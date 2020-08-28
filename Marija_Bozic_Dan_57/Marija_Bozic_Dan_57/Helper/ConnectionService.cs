@@ -12,6 +12,7 @@ namespace Marija_Bozic_Dan_57.Helper
 {
     public static class ConnectionService
     {
+        public static int numOfBill = 0;
         public static void GetAllArticals()
         {          
             using (Service1Client service = new Service1Client())
@@ -76,7 +77,8 @@ namespace Marija_Bozic_Dan_57.Helper
                     {
                         if(listOfArticals!=null)
                         {
-                            service.AddArticalToBill(listOfArticals.ToArray());
+                            numOfBill++;
+                            service.AddArticalToBill(listOfArticals.ToArray(), numOfBill);
                         }                        
                         break;
                     }
@@ -92,8 +94,7 @@ namespace Marija_Bozic_Dan_57.Helper
                     a.Quantity = inputQuantity;
                     
                     listOfArticals.Add(a);                   
-                }
-                
+                }               
             }           
         }
     }

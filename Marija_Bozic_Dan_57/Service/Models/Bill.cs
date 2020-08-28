@@ -10,17 +10,10 @@ namespace Service.Models
     public class Bill
     {
         [DataMember]
-        public int BrojRacuna { get; set; }
-        [DataMember]
         public DateTime TimeStamp { get; set; }
         [DataMember]
         public double TotalPrice { get; set; }
         [DataMember]
         public List<Artical> ListArticals { get; set; }
-
-        public Bill()
-        {
-            BrojRacuna++;
-        }
     }
 }
