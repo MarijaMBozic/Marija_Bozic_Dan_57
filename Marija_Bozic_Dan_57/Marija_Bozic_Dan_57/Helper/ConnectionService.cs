@@ -41,9 +41,9 @@ namespace Marija_Bozic_Dan_57.Helper
                     return;
                 }
                 Console.WriteLine("Insert quantity of artical:");
-                a.Quantity = int.Parse(Console.ReadLine());
+                a.Quantity = Validation.ValidateInt();
                 Console.WriteLine("Insert price of artical:");
-                a.Price = double.Parse(Console.ReadLine());             
+                a.Price = Validation.ValidateInput();             
 
                 service.AddNewArtical(a);
             }
@@ -55,8 +55,13 @@ namespace Marija_Bozic_Dan_57.Helper
                 Console.WriteLine("Insert artical name:");
                 string name = Console.ReadLine();
                 Artical artical = service.GetArticalByName(name);
+                if (artical == null)
+                {
+                    Console.WriteLine("Artical by name {0} doesn't exists!", name.ToUpper());
+                    return;
+                }
                 Console.WriteLine("Insert new price for {0} :", name);
-                artical.Price = double.Parse(Console.ReadLine());
+                artical.Price = Validation.ValidateInput();
 
                 service.UpdateArtical(artical);
             }
@@ -69,31 +74,43 @@ namespace Marija_Bozic_Dan_57.Helper
             {
                 while (true)
                 {
-                    Console.WriteLine("\nIf you do not want new articles, press x:");
-                    Console.WriteLine("\nInsert name of artical:");
+                    Console.WriteLine("\nIf you want to quit, press q:");
+                    Console.WriteLine("\nIf you do not want any new articles, press x:");
+                    Console.WriteLine("\nElse\nInsert name of artical:");
                     string input = Console.ReadLine();
 
                     if (input.ToLower() == "x")
                     {
-                        if(listOfArticals!=null)
+                        if(listOfArticals.Count>0)
                         {
                             numOfBill++;
                             service.AddArticalToBill(listOfArticals.ToArray(), numOfBill);
                         }                        
                         break;
                     }
+                    else if(input.ToLower()=="q")
+                    {
+                        break;
+                    }
 
                     Artical a = service.GetArticalByName(input);
                     if(a==null)
                     {
-                        Console.WriteLine("We dont'have artical under the name: {0}", input.ToUpper());
+                        Console.WriteLine("We dont have artical under the name: {0}", input.ToUpper());
                         continue;
                     }
                     Console.WriteLine("\nInsert quantity of artical:");
                     int inputQuantity = Validation.ValidateInt();
                     a.Quantity = inputQuantity;
-                    
-                    listOfArticals.Add(a);                   
+                    if(service.CheckQuantity(a))
+                    {
+                        listOfArticals.Add(a);
+                    }
+                    else
+                    {
+                        Console.WriteLine("We do not have the desired amount of : {0}", input.ToUpper());
+                        continue;
+                    }                                
                 }               
             }           
         }

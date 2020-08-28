@@ -1,0 +1,7 @@
+﻿Time: 28/08/2020 11:59:44
+--------------------------------
+[NAME]           [QUANTITY]    [PRICE] 
+Secer              6 x         25 din.
+Sladoled              2 x        450 din.
+--------------------------------
+Total price: 1050 din.

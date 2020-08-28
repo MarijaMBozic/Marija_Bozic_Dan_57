@@ -1,6 +1,6 @@
-﻿Time: 28/08/2020 09:07:26
+﻿Time: 28/08/2020 12:01:28
 --------------------------------
 [NAME]           [QUANTITY]    [PRICE] 
-Brasno -             5x             22
+Secer              2 x         25 din.
 --------------------------------
-Total price: 110
+Total price: 50 din.

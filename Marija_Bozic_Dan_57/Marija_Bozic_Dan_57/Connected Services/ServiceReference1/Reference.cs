@@ -56,6 +56,12 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CorectArticalQuantity", ReplyAction="http://tempuri.org/IService1/CorectArticalQuantityResponse")]
         System.Threading.Tasks.Task CorectArticalQuantityAsync(Service.Models.Artical[] listOfBuyArticals);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckQuantity", ReplyAction="http://tempuri.org/IService1/CheckQuantityResponse")]
+        bool CheckQuantity(Service.Models.Artical artical);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CheckQuantity", ReplyAction="http://tempuri.org/IService1/CheckQuantityResponse")]
+        System.Threading.Tasks.Task<bool> CheckQuantityAsync(Service.Models.Artical artical);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -139,6 +145,14 @@ namespace Marija_Bozic_Dan_57.ServiceReference1 {
         
         public System.Threading.Tasks.Task CorectArticalQuantityAsync(Service.Models.Artical[] listOfBuyArticals) {
             return base.Channel.CorectArticalQuantityAsync(listOfBuyArticals);
+        }
+        
+        public bool CheckQuantity(Service.Models.Artical artical) {
+            return base.Channel.CheckQuantity(artical);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckQuantityAsync(Service.Models.Artical artical) {
+            return base.Channel.CheckQuantityAsync(artical);
         }
     }
 }

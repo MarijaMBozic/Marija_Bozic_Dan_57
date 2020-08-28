@@ -1,3 +1,9 @@
-﻿Jabuke,50,150
-Brasno,80,22
-jaja,50,50
+﻿Jabuke,45,150
+Brasno,-15,22
+jaja,18,12.12
+Secer,32,25
+Sirce,75,10
+Sladoled,58,450
+Voda,91,45.35
+dfss,2,45.3
+Masline,0,456

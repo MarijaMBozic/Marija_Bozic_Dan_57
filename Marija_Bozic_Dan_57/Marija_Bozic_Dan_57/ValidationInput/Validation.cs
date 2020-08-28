@@ -17,5 +17,15 @@ namespace Marija_Bozic_Dan_57.ValidationInput
             }
             return number;
         }
+
+        public static double ValidateInput()
+        {
+            double number;
+            while (Double.TryParse(Console.ReadLine(), out number) == false)
+            {
+                Console.Write("Error - incorrectly entered value, try again: : ");
+            }
+            return number;
+        }
     }
 }

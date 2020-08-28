@@ -61,7 +61,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BillFiles\Bill.txt" />
+    <Content Include="BillFiles\Bill_1_28082020112110.txt" />
+    <Content Include="BillFiles\Bill_1_28082020112503.txt" />
+    <Content Include="BillFiles\Bill_1_28082020113959.txt" />
+    <Content Include="BillFiles\Bill_1_28082020115216.txt" />
+    <Content Include="BillFiles\Bill_1_28082020115927.txt" />
+    <Content Include="BillFiles\Bill_2_28082020115944.txt" />
     <Content Include="Files\Articals.txt" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />

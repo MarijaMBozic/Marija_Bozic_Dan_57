@@ -35,6 +35,9 @@ namespace Service
         [OperationContract]
         void CorectArticalQuantity(List<Artical> listOfBuyArticals);
 
+        [OperationContract]
+        bool CheckQuantity(Artical artical);
+
     }
 
     [DataContract]

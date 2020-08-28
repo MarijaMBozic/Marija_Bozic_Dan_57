@@ -111,10 +111,10 @@ namespace Service
                 writer.WriteLine("{0, -5} {1, 20} {2, 10} ", "[NAME]", "[QUANTITY]", "[PRICE]");
                 foreach (Artical item in bill.ListArticals)
                 {
-                    writer.WriteLine("{0, 5} - {1, 13}x{2, 15}", item.Name, item.Quantity, item.Price);
+                    writer.WriteLine("{0, 5}  {1, 13} x {2, 10} din.", item.Name, item.Quantity, item.Price);
                 }
                 writer.WriteLine("--------------------------------");
-                writer.WriteLine("Total price: {0}", bill.TotalPrice);
+                writer.WriteLine("Total price: {0} din.", bill.TotalPrice);
             }
             CorectArticalQuantity(bill.ListArticals);
         }
@@ -137,6 +137,16 @@ namespace Service
                     writer.WriteLine("{0},{1},{2}", art.Name, art.Quantity, art.Price);
                 }
             }
+        }
+
+        public bool CheckQuantity(Artical artical)
+        {
+            Artical art = GetArticalByName(artical.Name);
+            if(art.Quantity<artical.Quantity)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
